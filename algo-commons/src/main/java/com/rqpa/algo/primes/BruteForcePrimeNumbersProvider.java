@@ -4,7 +4,7 @@ public class BruteForcePrimeNumbersProvider implements PrimeNumbersProvider
 {
     public static final BruteForcePrimeNumbersProvider instance = new BruteForcePrimeNumbersProvider();
 
-    private static final int MAX_NUMBERS = 1_000_000;
+    private static final int MAX_NUMBERS = 10_000_000;
 
     private final long[] knownPrimes = new long[MAX_NUMBERS];
     private int knownPrimesCount = 2;

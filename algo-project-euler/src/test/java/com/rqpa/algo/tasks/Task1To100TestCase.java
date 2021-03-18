@@ -124,7 +124,7 @@ public class Task1To100TestCase
     @Test
     public void testTask20()
     {
-
+        Assertions.assertEquals(648, Task20.findSumOfDigitsIn100Factorial());
     }
 
     @Test
