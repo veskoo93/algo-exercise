@@ -1,7 +1,12 @@
 package com.rqpa.algo.tasks;
 
+import java.io.IOException;
+import java.math.BigInteger;
+
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
+
+import com.rqpa.algo.tuple.Tuple;
 
 public class Task1To100TestCase
 {
@@ -130,6 +135,67 @@ public class Task1To100TestCase
     @Test
     public void testTask21()
     {
+        Assertions.assertEquals(31626, Task21.findSumOfAllAmicableNumbersUnder10000());
+    }
 
+    @Test
+    public void testTask22() throws IOException
+    {
+        Assertions.assertEquals(871198282l, Task22.calculateScoresSum());
+    }
+
+    @Test
+    public void testTask23()
+    {
+        Assertions.assertEquals(4179871l, Task23.sumOfAllPositiveNumbersNotASumOfTwoAbundantNumbers());
+    }
+
+    @Test
+    public void testTask24()
+    {
+        Assertions.assertEquals("2783915460", Task24.getMillionthLexicographicPermutationOfDigits0To9());
+    }
+
+    @Test
+    public void testTask25()
+    {
+        Tuple<Long, BigInteger> expectedTuple = Tuple.of(
+                4782l,
+                new BigInteger("107006626638275893676498058445739688508368389663215166501323520337531452"
+                        + "060469404062188914758248979265780469488817759195748433646667256"
+                        + "995951299603046126274809248218614406943305123477444275027378175"
+                        + "308757939166619214925918675955396642283714894311307469950343954"
+                        + "700198543260972306729019287052644724372611771582182554849112052"
+                        + "501320147861296593138179223555965745203950613755146783754322911"
+                        + "960212993404826070617539770684706820289548690266618543512452190"
+                        + "036948064135744747091170761976694569107009802439343961747410373"
+                        + "691250323136553216477369702316775505159517351846057995491941096"
+                        + "777837322966579658164651390348815425631018422419025984608800011"
+                        + "018625555024549393711365165703944762958471454852342595042858242"
+                        + "530608354443542821261100899286379504800689433030977321783486454"
+                        + "311320576565986845628861680871869383529735064398629764066000072"
+                        + "356291790520705116407761481249188583094594056668833910935094445"
+                        + "657635766615161931775379289166158132715961687748798382182049252"
+                        + "0348473874384736771934512787029218636250627816"));
+        // Now that's some big-ass number
+        Assertions.assertEquals(expectedTuple, Task25.getResult());
+    }
+
+    @Test
+    public void testTask26()
+    {
+        Assertions.assertEquals(983, Task26.getDenominatorSmallerThan1000WithLongestCycle());
+    }
+
+    @Test
+    public void testTask27()
+    {
+        Assertions.assertEquals(-59231, Task27.findTheProverbialProduct());
+    }
+
+    @Test
+    public void testTask28()
+    {
+        Assertions.assertEquals(669171001, Task28.findDiagonalsSumIn1001WidthAndHeightSpiral());
     }
 }

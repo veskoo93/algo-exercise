@@ -1,5 +1,6 @@
 package com.rqpa.algo.primes;
 
+import java.util.Arrays;
 import java.util.BitSet;
 
 public class EratosthenesSievePrimeNumbersProvider implements PrimeNumbersProvider
@@ -17,11 +18,16 @@ public class EratosthenesSievePrimeNumbersProvider implements PrimeNumbersProvid
     }
 
     @Override
+    public boolean isPrime(long n)
+    {
+        ensureNumberSupported(n);
+        return Arrays.binarySearch(primes, n) >= 0;
+    }
+
+    @Override
     public long[] getPrimesLessThan(long n)
     {
-        if (n > MAX_NUMBER) {
-            throw new IllegalArgumentException("This implementation of \"erathosten sieve\" can not find primes larger than " + MAX_NUMBER);
-        }
+        ensureNumberSupported(n);
 
         if (primes == null) {
             synchronized (lock) {
@@ -31,6 +37,13 @@ public class EratosthenesSievePrimeNumbersProvider implements PrimeNumbersProvid
             }
         }
         return PrimeNumbersProviderSupport.resolvePrimesArrayWithPrimesLessThan(primes, n);
+    }
+
+    private void ensureNumberSupported(long n)
+    {
+        if (n > MAX_NUMBER) {
+            throw new IllegalArgumentException("This implementation of \"erathosten sieve\" can not find primes larger than " + MAX_NUMBER);
+        }
     }
 
     private void doSieve() {

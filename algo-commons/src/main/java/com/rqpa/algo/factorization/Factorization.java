@@ -67,9 +67,8 @@ public abstract class Factorization
                 Collections.addAll(divisors, multipliedDivisors);
             }
         }
+        divisors.add(1l);
         divisors.add(n);
-
-
 
         return divisors;
     }

@@ -22,14 +22,13 @@ public class Task21
 {
     public static void main(String[] args)
     {
-//        System.out.println(isAmicable(new DFunction(), 220));
         System.out.println(findSumOfAllAmicableNumbersUnder10000());
     }
 
     public static long findSumOfAllAmicableNumbersUnder10000()
     {
         DFunction d = new DFunction();
-        return LongStream.range(1, 10_000)
+        return LongStream.range(2, 10_000)
                 .filter(n -> isAmicable(d, n))
                 .sum();
     }

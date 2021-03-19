@@ -1,5 +1,7 @@
 package com.rqpa.algo.primes;
 
+import java.util.Arrays;
+
 public class BruteForcePrimeNumbersProvider implements PrimeNumbersProvider
 {
     public static final BruteForcePrimeNumbersProvider instance = new BruteForcePrimeNumbersProvider();
@@ -14,6 +16,13 @@ public class BruteForcePrimeNumbersProvider implements PrimeNumbersProvider
     {
         knownPrimes[0] = 2;
         knownPrimes[1] = 3;
+    }
+
+    @Override
+    public synchronized boolean isPrime(long n)
+    {
+        ensurePrimesLessThanNAvailable(n + 1);
+        return Arrays.binarySearch(knownPrimes, 0, knownPrimesCount, n) >= 0;
     }
 
     @Override
@@ -48,7 +57,7 @@ public class BruteForcePrimeNumbersProvider implements PrimeNumbersProvider
     private void calculateNextPrimeIfLessThanN(long n) {
         long primeCandidate = lastCheckedNumber + 1;
         for (; primeCandidate < n; primeCandidate++) {
-            if (isPrime(primeCandidate)) {
+            if (checkPrimeCandidate(primeCandidate)) {
                 knownPrimes[knownPrimesCount++] = primeCandidate;
                 lastCheckedNumber = primeCandidate;
                 return;
@@ -57,7 +66,7 @@ public class BruteForcePrimeNumbersProvider implements PrimeNumbersProvider
         lastCheckedNumber = primeCandidate - 1;
     }
 
-    private boolean isPrime(long candidate) {
+    private boolean checkPrimeCandidate(long candidate) {
         for (int i = 0; i < knownPrimesCount; i++) {
             long knownPrime = knownPrimes[i];
             if (knownPrime * knownPrime > candidate) {
