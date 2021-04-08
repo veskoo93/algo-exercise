@@ -15,7 +15,7 @@ public abstract class AbstractPrimeNumberCheckerTestCase
 
     @ParameterizedTest
     @CsvSource({
-            "1,true",
+            "1,false",
             "2,true",
             "3,true",
             "4,false",
@@ -28,7 +28,7 @@ public abstract class AbstractPrimeNumberCheckerTestCase
             "37,true",
             "38,false"
     })
-    public void testChecker(int number, boolean isPrime) {
+    public void testChecker(long number, boolean isPrime) {
         boolean actualIsPrime = createChecker().isPrime(number);
         logger.trace("Checked if number {} was prime. Expected: {} Actual: {} Match: {}", number, isPrime, actualIsPrime, isPrime == actualIsPrime);
         Assertions.assertEquals(isPrime, actualIsPrime);

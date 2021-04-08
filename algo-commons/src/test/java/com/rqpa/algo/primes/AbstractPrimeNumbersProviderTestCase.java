@@ -3,9 +3,15 @@ package com.rqpa.algo.primes;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public abstract class AbstractPrimeNumbersProviderTestCase
+public abstract class AbstractPrimeNumbersProviderTestCase extends AbstractPrimeNumberCheckerTestCase
 {
     protected abstract PrimeNumbersProvider createProvider();
+
+    @Override
+    protected PrimeNumberChecker createChecker()
+    {
+        return createProvider();
+    }
 
     @Test
     public void testGetPrimesLessThan200()

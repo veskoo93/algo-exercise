@@ -198,4 +198,94 @@ public class Task1To100TestCase
     {
         Assertions.assertEquals(669171001, Task28.findDiagonalsSumIn1001WidthAndHeightSpiral());
     }
+
+    @Test
+    public void testTask29()
+    {
+        Assertions.assertEquals(9183, Task29.findDistinctResultsCountForPowersAndBasesFrom2To100());
+    }
+
+    @Test
+    public void testTask30()
+    {
+        Assertions.assertEquals(443839, Task30.sumOfAllNumbersEqualToSumOfFifthPowersOfTheirDigits());
+    }
+
+    @Test
+    public void testTask31()
+    {
+        Assertions.assertEquals(73682, Task31.calculateWaysToAchieve2pounds());
+    }
+
+    @Test
+    public void testTask32()
+    {
+        Assertions.assertEquals(45228, Task32.findSumOfUniquePandigitalProducts());
+    }
+
+    @Test
+    public void testTask33()
+    {
+        Assertions.assertEquals(100, Task33.findProductDenominator());
+    }
+
+    @Test
+    public void testTask34()
+    {
+        Assertions.assertEquals(40730, Task34.sumOfAllNumbersEqualToSumOfFifthPowersOfTheirDigits());
+    }
+
+    @Test
+    public void testTask35()
+    {
+        Assertions.assertEquals(55, Task35.countCircularPrimesBelow1Million());
+    }
+
+    @Test
+    public void testTask36()
+    {
+        Assertions.assertEquals(872187, Task36.findSumOfPalindromicDecAndBinaryLessThanMillion());
+    }
+
+    @Test
+    public void testTask37()
+    {
+        Assertions.assertEquals(748317, Task37.findSumOfTruncatablePrimes());
+    }
+
+    @Test
+    public void testTask38()
+    {
+        Assertions.assertEquals(932718654, Task38.largestPandigitalConcatenatedProduct());
+    }
+
+    @Test
+    public void testTask39()
+    {
+        Assertions.assertEquals(840, Task39.getMaxTrianglesCountForPerimeterUnder1000());
+    }
+
+    @Test
+    public void testTask40()
+    {
+        Assertions.assertEquals(210, Task40.findMagicValue());
+    }
+
+    @Test
+    public void testTask41()
+    {
+        Assertions.assertEquals(7652413, Task41.findLargestNDigitPandigitalPrime());
+    }
+
+    @Test
+    public void testTask42() throws IOException
+    {
+        Assertions.assertEquals(162, Task42.findTriangleWordsCount());
+    }
+
+    @Test
+    public void testTask43()
+    {
+        Assertions.assertEquals(16695334890l, Task43.findSpecialPandigitalsSum());
+    }
 }

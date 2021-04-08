@@ -2,12 +2,15 @@ package com.rqpa.algo.tasks;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.io.Reader;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Scanner;
+
+import com.rqpa.algo.files.QuotedStringsFileParser;
 
 /*
 Using the resource /tasks/p022_names.txt, a 46K text file containing over five-thousand first names, begin by sorting it into alphabetical order. Then working out the alphabetical value for each name, multiply this value by its alphabetical position in the list to obtain a name score.
@@ -39,53 +42,13 @@ public class Task22
     private static List<String> readAndSortNames() throws IOException
     {
         ArrayList<String> sortedNames = new ArrayList<>();
-        try (Reader reader = new BufferedReader(new InputStreamReader(Task22.class.getResourceAsStream("/tasks/p022_names.txt"))))
+        try (InputStream is = Task22.class.getResourceAsStream("/tasks/p022_names.txt"))
         {
-            String currentName = null;
-            while ((currentName = parseNextName(reader)) != null)
-            {
-                sortedNames.add(currentName);
-            }
+            QuotedStringsFileParser.instance.parse(is, sortedNames::add);
         }
 
         sortedNames.sort(Comparator.naturalOrder());
         return sortedNames;
-    }
-
-    private static String parseNextName(Reader reader) throws IOException
-    {
-        StringBuilder nameSb = new StringBuilder();
-        int firstCharacter = reader.read();
-        if (firstCharacter == -1)
-        {
-            // EOF reached.
-            return null;
-        }
-        char currentChar = (char) firstCharacter;
-        if (currentChar == ',')
-        {
-            // Skip the comma
-            currentChar = requireNextChar(reader);
-        }
-        if (currentChar != '"')
-        {
-            throw new IOException("Unexpected token: " + currentChar);
-        }
-        while((currentChar = requireNextChar(reader)) != '"')
-        {
-            nameSb.append(currentChar);
-        }
-        return nameSb.toString();
-    }
-
-    private static char requireNextChar(Reader reader) throws IOException
-    {
-        int read = reader.read();
-        if (read == -1)
-        {
-            throw new IOException("Unexpected EOF!");
-        }
-        return (char) read;
     }
 
     private static long calculateScore(int index, String name)

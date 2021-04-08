@@ -21,6 +21,7 @@ public class EratosthenesSievePrimeNumbersProvider implements PrimeNumbersProvid
     public boolean isPrime(long n)
     {
         ensureNumberSupported(n);
+        ensureSieved();
         return Arrays.binarySearch(primes, n) >= 0;
     }
 
@@ -28,14 +29,7 @@ public class EratosthenesSievePrimeNumbersProvider implements PrimeNumbersProvid
     public long[] getPrimesLessThan(long n)
     {
         ensureNumberSupported(n);
-
-        if (primes == null) {
-            synchronized (lock) {
-                if (primes == null) {
-                    doSieve();
-                }
-            }
-        }
+        ensureSieved();
         return PrimeNumbersProviderSupport.resolvePrimesArrayWithPrimesLessThan(primes, n);
     }
 
@@ -43,6 +37,17 @@ public class EratosthenesSievePrimeNumbersProvider implements PrimeNumbersProvid
     {
         if (n > MAX_NUMBER) {
             throw new IllegalArgumentException("This implementation of \"erathosten sieve\" can not find primes larger than " + MAX_NUMBER);
+        }
+    }
+
+    private void ensureSieved()
+    {
+        if (primes == null) {
+            synchronized (lock) {
+                if (primes == null) {
+                    doSieve();
+                }
+            }
         }
     }
 

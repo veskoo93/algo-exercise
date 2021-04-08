@@ -5,6 +5,7 @@ import static org.slf4j.LoggerFactory.getLogger;
 import org.slf4j.Logger;
 
 import com.rqpa.algo.primes.BruteForcePrimeNumbersProvider;
+import com.rqpa.algo.primes.PrimeNumberChecker;
 import com.rqpa.algo.primes.PrimeNumbersProvider;
 
 /*
@@ -36,7 +37,7 @@ public class Task27
         return findTheProverbialProduct(BruteForcePrimeNumbersProvider.instance);
     }
 
-    private static long findTheProverbialProduct(PrimeNumbersProvider primeNumbersProvider)
+    private static long findTheProverbialProduct(PrimeNumberChecker primeNumbersProvider)
     {
         int maxN = -1;
         int aAtMaxN = -1000;

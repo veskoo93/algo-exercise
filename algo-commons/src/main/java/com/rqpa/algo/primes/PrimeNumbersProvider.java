@@ -1,7 +1,6 @@
 package com.rqpa.algo.primes;
 
-public interface PrimeNumbersProvider
+public interface PrimeNumbersProvider extends PrimeNumberChecker
 {
     long[] getPrimesLessThan(long n);
-    boolean isPrime(long n);
 }

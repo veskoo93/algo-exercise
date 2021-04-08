@@ -13,7 +13,12 @@ public class WilsonTheoremPrimeChecker implements PrimeNumberChecker {
     }
 
     @Override
-    public boolean isPrime(int n) {
+    public boolean isPrime(long n) {
+        if (n <= 1)
+        {
+            return false;
+        }
+
         /*
             result: ((n − 1)! + 1) % n == 0
             result: (((n-1)! % n) + 1 % n) % n == 0
@@ -22,8 +27,8 @@ public class WilsonTheoremPrimeChecker implements PrimeNumberChecker {
         // First find ((n-1)! ) % n
         // m! % n = ( 1%n + 2%n + ... + m%n) %n = (((1%n) +2%n)%n+3%n)....%n
 
-        int factorialDivisionRemainder = 1;
-        for (int i = 2; i < n; i++) {
+        long factorialDivisionRemainder = 1;
+        for (long i = 2; i < n; i++) {
             factorialDivisionRemainder = (factorialDivisionRemainder * i % n) % n;
         }
 
