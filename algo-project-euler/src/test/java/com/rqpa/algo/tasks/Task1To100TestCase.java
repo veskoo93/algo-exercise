@@ -288,4 +288,58 @@ public class Task1To100TestCase
     {
         Assertions.assertEquals(16695334890l, Task43.findSpecialPandigitalsSum());
     }
+
+    @Test
+    public void testTask44()
+    {
+        Assertions.assertEquals(5482660, Task44.findMinDifference());
+    }
+
+    @Test
+    public void testTask45()
+    {
+        Assertions.assertEquals(1533776805l, Task45.findNextTriangleNumber());
+    }
+
+    @Test
+    public void testTask46()
+    {
+        Assertions.assertEquals(5777, Task46.findSmallestOddComposite());
+    }
+
+    @Test
+    public void testTask47()
+    {
+        Assertions.assertEquals(134043, Task47.solution());
+    }
+
+    @Test
+    public void testTask48()
+    {
+        Assertions.assertEquals("9110846700", Task48.solution());
+    }
+
+    @Test
+    public void testTask49()
+    {
+        Assertions.assertEquals(296962999629l, Task49.solution());
+    }
+
+    @Test
+    public void testTask50()
+    {
+        Assertions.assertEquals(997651, Task50.solution());
+    }
+
+    @Test
+    public void testTask51()
+    {
+        Assertions.assertEquals(121313, Task51.solution());
+    }
+
+    @Test
+    public void testTask52()
+    {
+        Assertions.assertEquals(142857, Task52.solution());
+    }
 }

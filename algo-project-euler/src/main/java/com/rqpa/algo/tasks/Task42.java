@@ -12,6 +12,7 @@ import java.util.List;
 import java.util.function.Consumer;
 
 import com.rqpa.algo.files.QuotedStringsFileParser;
+import com.rqpa.algo.numbers.GeometricNumbersGenerator;
 
 /*
 The nth term of the sequence of triangle numbers is given by, tn = ½n(n+1); so the first ten triangle numbers are:
@@ -75,8 +76,7 @@ public class Task42
 
             while (lastTriangleNumber <= n)
             {
-                lastTriangleNumber = nextTriangleNumberIndex * (nextTriangleNumberIndex + 1) / 2;
-                nextTriangleNumberIndex++;
+                lastTriangleNumber = GeometricNumbersGenerator.getTriangleNumber(nextTriangleNumberIndex++);
                 knownTriangleNumbers.add(lastTriangleNumber);
             };
         }
